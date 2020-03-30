@@ -22,7 +22,7 @@ class HomeController extends Controller
      */
     public function __construct()
     {
-        // $this->middleware('auth');
+        //
     }
 
     public function getToken(Request $request)
@@ -52,8 +52,6 @@ class HomeController extends Controller
     {
         return view('home');
     }
-    // 1-4 -> 25
-    // 2-3 ->
 
     public function checkAvailablity($request)
     {
