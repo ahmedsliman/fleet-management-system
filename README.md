@@ -43,3 +43,11 @@ password: adminforfleet
 -   Both Endpoints relies on departure and distination inputs as GET/POST variables (values MUST be numbers exists [here](http://127.0.0.1:8000/))
 -   To check avialability depends on the departure and distination, `Ex: http://127.0.0.1:8000/api/book?departure=2&distination=3`
 -   To book a seat for travel, return seat number **POST**, `http://127.0.0.1:8000/api/book`
+
+## Points to develop
+
+-   Add new lines for traveling
+-   Make an avialability for two-way ticket
+-   Using graph to develop the algorithm
+-   Write tests
+-   Convert it into docker image
