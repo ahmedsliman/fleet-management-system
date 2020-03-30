@@ -57,8 +57,8 @@ class HomeController extends Controller
     {
         // Validation
         $validator = Validator::make($request->all(), [
-            'departure' => 'required',
-            'distination' => 'required',
+            'departure' => 'required|min:1|max:10',
+            'distination' => 'required|min:1|max:10|gt:departure',
         ]);
 
         if ($validator->fails()) {
