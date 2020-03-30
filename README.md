@@ -19,7 +19,8 @@ npm install
 ```bash
 php artisan migrate
 
-php artisan db:seed --class=UsersTableSeeder
+php artisan db:seed --class=UserSeeder
+php artisan db:seed --class=CitySeeder
 ```
 
 ## To Run
@@ -34,3 +35,8 @@ php artisan serve
 ahmedsliman@gmail.com
 adminforfleet
 ```
+
+## Endpoints
+
+-   To check avialability depends on the departure and distination, `http://127.0.0.1:8000/book?departure=2&distination=3`
+-   To book a seat for travel, return seat number **POST**, `http://127.0.0.1:8000/book`

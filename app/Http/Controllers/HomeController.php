@@ -52,7 +52,6 @@ class HomeController extends Controller
                 array_column($reservationsResult->get()->toArray(), 'seat')
             );
             if (count($availableSeats)) {
-                // return ReservationResource::collection($reservationsResult->paginate(5));
                 return [
                     'seats' => $availableSeats
                 ];
