@@ -2,10 +2,13 @@
 
 namespace App\Http\Controllers;
 
+use App\User;
 use App\Reservation;
 use Illuminate\Support\Arr;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Hash;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Validation\ValidationException;
 use App\Http\Resources\ReservationResource as ReservationResource;
 
 class HomeController extends Controller
@@ -20,6 +23,24 @@ class HomeController extends Controller
     public function __construct()
     {
         // $this->middleware('auth');
+    }
+
+    public function getToken(Request $request)
+    {
+        $data = $request->validate([
+            'email' => 'required',
+            'password' => 'required'
+        ]);
+
+        $user = User::where('email', $request->email)->first();
+
+        if (!$user || !Hash::check($request->password, $user->password)) {
+            return response([
+                'email' => ['The provided credentials are incorrect.'],
+            ], 404);
+        }
+
+        return $user->createToken('my-token')->plainTextToken;
     }
 
     /**
